@@ -29,6 +29,7 @@ public class AtividadeDAO implements IAtividadeDAO {
         banco = openHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("nome", atividade.getNome());
+        valores.put("usuario_id", atividade.getUsuarioId());
         valores.put("duracao", atividade.getDuracao());
         valores.put("prioridade", atividade.getPrioridade());
         valores.put("data", atividade.getData().getTime());
@@ -37,17 +38,18 @@ public class AtividadeDAO implements IAtividadeDAO {
     }
 
     @Override
-    public List<Atividade> listar() {
+    public List<Atividade> listar(String idUsuario) {
         SQLiteDatabase banco = openHelper.getReadableDatabase();
-        Cursor cursor = banco.query("atividade", new String[]{"id","nome","data","duracao","prioridade"}, null,null,null,null,"id");
+        Cursor cursor = banco.query("atividade", new String[]{"id","usuario_id", "nome","data","duracao","prioridade"}, "usuario_id = ?",new String[] {idUsuario},null,null,"id");
         List<Atividade> atividades = new ArrayList<Atividade>();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex("id"));
+            int usuario = cursor.getInt(cursor.getColumnIndex("usuario_id"));
             String nome = cursor.getString(cursor.getColumnIndex("nome"));
             int duracao = cursor.getInt(cursor.getColumnIndex("duracao"));
             String prioridade = cursor.getString(cursor.getColumnIndex("prioridade"));
             Date data = new Date(cursor.getLong(cursor.getColumnIndex("data")));
-            atividades.add(new Atividade(id, nome, duracao, prioridade, data));
+            atividades.add(new Atividade(id, usuario, nome, duracao, prioridade, data));
         }
         return atividades;
     }
@@ -55,15 +57,16 @@ public class AtividadeDAO implements IAtividadeDAO {
     @Override
     public List<Atividade> listarPeloPeriodo(String dtInicio, String dtFim) {
         SQLiteDatabase banco = openHelper.getReadableDatabase();
-        Cursor cursor = banco.query("atividade", new String[]{"id","nome","duracao","prioridade", "data"}, "data >= ? or data <= ?", new String[] {dtInicio, dtFim},null,null,"id");
+        Cursor cursor = banco.query("atividade", new String[]{"id", "usuario_id", "nome","duracao","prioridade", "data"}, "data >= ? or data <= ?", new String[] {dtInicio, dtFim},null,null,"id");
         List<Atividade> atividades = new ArrayList<Atividade>();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(cursor.getColumnIndex("id"));
+            int usuario = cursor.getInt(cursor.getColumnIndex("usuario_id"));
             String nome = cursor.getString(cursor.getColumnIndex("nome"));
             int duracao = cursor.getInt(cursor.getColumnIndex("duracao"));
             String prioridade = cursor.getString(cursor.getColumnIndex("prioridade"));
             Date data = new Date(cursor.getLong(cursor.getColumnIndex("data")));
-            atividades.add(new Atividade(id, nome, duracao, prioridade, data));
+            atividades.add(new Atividade(id, usuario, nome, duracao, prioridade, data));
         }
         return atividades;
     }
@@ -73,6 +76,7 @@ public class AtividadeDAO implements IAtividadeDAO {
         banco = openHelper.getWritableDatabase();
         ContentValues valores = new ContentValues();
         valores.put("nome", atividade.getNome());
+        valores.put("usuario_id", atividade.getUsuarioId());
         valores.put("duracao", atividade.getDuracao());
         valores.put("prioridade", atividade.getPrioridade());
         valores.put("data", atividade.getData().getTime());

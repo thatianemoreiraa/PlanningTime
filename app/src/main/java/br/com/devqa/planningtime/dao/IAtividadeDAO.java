@@ -11,7 +11,7 @@ import br.com.devqa.planningtime.model.Atividade;
 public interface IAtividadeDAO {
 
     void inserirAtividade(Atividade atividade);
-    List<Atividade> listar();
+    List<Atividade> listar(String idUsuario);
     List<Atividade> listarPeloPeriodo(String dtInicio, String dtFim);
     void atualizar(Atividade atividade);
     void excluir (Atividade atividade);

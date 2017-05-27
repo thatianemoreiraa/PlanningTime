@@ -43,7 +43,7 @@ public class FormularioAtividadeActivity extends Activity {
         if (validarCamposObrigatorios()) {
             String prioridade = ((Spinner) findViewById(R.id.spnPrioridade)).getSelectedItem().toString();
             AtividadeDAO dao = new AtividadeDAO(this);
-            dao.inserirAtividade(new Atividade(nome, Integer.parseInt(duracao), prioridade, Util.stringToDate(data)));
+            dao.inserirAtividade(new Atividade(Integer.parseInt(getIntent().getStringExtra("idUsuario")), nome, Integer.parseInt(duracao), prioridade, Util.stringToDate(data)));
             Toast.makeText(this, "Atividade cadastrada!", Toast.LENGTH_SHORT).show();
             startActivity(Util.enviarIntentComIdUsuario(this, TarefasActivity.class, getIntent().getStringExtra("idUsuario")));
         }

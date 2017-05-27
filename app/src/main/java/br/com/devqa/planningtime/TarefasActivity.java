@@ -28,9 +28,9 @@ public class TarefasActivity extends Activity implements AdapterView.OnItemClick
         obterAtividades(getIntent().getStringExtra("idUsuario"));
     }
 
-    private void obterAtividades(String idUsuario) {//TODO INSERIR PESQUISA PELO ID DO USUÁRIO
+    private void obterAtividades(String idUsuario) {
         AtividadeDAO dao = new AtividadeDAO(this);
-        List<Atividade> list = dao.listar();
+        List<Atividade> list = dao.listar(idUsuario);
         for (Atividade atv : list) {
             String descricao = atv.getNome() + "                   " + "Duração: " + atv.getDuracao() + " minutos";
             conteudo.add(descricao);

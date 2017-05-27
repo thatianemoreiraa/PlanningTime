@@ -19,10 +19,12 @@ public class BdOpenHelper extends SQLiteOpenHelper {
 
     private static String TB_ATIVIDADE = "CREATE TABLE atividade" +
             "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+            "usuario_id INTEGER," +
             "nome VARCHAR(30)," +
             "duracao INTEGER," +
             "prioridade VARCHAR(5)," +
-            "data DATE);";
+            "data DATE," +
+            "FOREIGN KEY(usuario_id) REFERENCES usuario(id));";
 
     public BdOpenHelper (Context context) {
         super(context, NOME_BD, null, 1);

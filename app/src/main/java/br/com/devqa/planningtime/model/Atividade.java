@@ -9,23 +9,34 @@ import java.util.Date;
 public class Atividade {
 
     private int id;
+    private int usuarioId;
     private String nome;
     private int duracao;
     private String prioridade;
     private Date data;
 
-    public Atividade(int id, String nome, int duracao, String prioridade, Date data) {
+    public Atividade(int id, int idUsuario, String nome, int duracao, String prioridade, Date data) {
         this.id = id;
+        this.usuarioId = idUsuario;
         this.nome = nome;
         this.duracao = duracao;
         this.prioridade = prioridade;
         this.data = data;
     }
-    public Atividade(String nome, int duracao, String prioridade, Date data) {
+    public Atividade(int idUsuario, String nome, int duracao, String prioridade, Date data) {
+        this.usuarioId = idUsuario;
         this.nome = nome;
         this.duracao = duracao;
         this.prioridade = prioridade;
         this.data = data;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public int getId() {
