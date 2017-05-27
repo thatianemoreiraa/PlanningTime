@@ -13,25 +13,22 @@ public class Atividade {
     private String descricao;
     private int duracao;
     private String prioridade;
-    private Date dataInicio;
-    private Date dataFim;
+    private Date data;
 
-    public Atividade(int id, String nome, String descricao, int duracao, String prioridade, Date dataInicio, Date dataFim) {
+    public Atividade(int id, String nome, String descricao, int duracao, String prioridade, Date data) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
         this.prioridade = prioridade;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.data = data;
     }
-    public Atividade(String nome, String descricao, int duracao, String prioridade, Date dataInicio, Date dataFim) {
+    public Atividade(String nome, String descricao, int duracao, String prioridade, Date data) {
         this.nome = nome;
         this.descricao = descricao;
         this.duracao = duracao;
         this.prioridade = prioridade;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.data = data;
     }
 
     public int getId() {
@@ -70,19 +67,11 @@ public class Atividade {
         this.prioridade = prioridade;
     }
 
-    public Date getDataInicio() {
-        return dataInicio;
+    public Date getData() {
+        return data;
     }
 
-    public void setDataInicio(Date dataInicio) {
-        this.dataInicio = dataInicio;
-    }
-
-    public Date getDataFim() {
-        return dataFim;
-    }
-
-    public void setDataFim(Date dataFim) {
-        this.dataFim = dataFim;
+    public void setData(Date data) {
+        this.data = data;
     }
 }

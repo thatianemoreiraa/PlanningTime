@@ -32,8 +32,7 @@ public class AtividadeDAO implements IAtividadeDAO {
         valores.put("descricao", atividade.getDescricao());
         valores.put("duracao", atividade.getDuracao());
         valores.put("prioridade", atividade.getPrioridade());
-        valores.put("data_inicio", atividade.getDataInicio().getTime());
-        valores.put("data_fim", atividade.getDataFim().getTime());
+        valores.put("data", atividade.getData().getTime());
         banco.insert("atividade", null, valores);
         banco.close();
     }
@@ -49,9 +48,8 @@ public class AtividadeDAO implements IAtividadeDAO {
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             int duracao = cursor.getInt(cursor.getColumnIndex("duracao"));
             String prioridade = cursor.getString(cursor.getColumnIndex("prioridade"));
-            Date dtInicio = new Date(cursor.getLong(cursor.getColumnIndex("data_inicio")));
-            Date dtFim = new Date(cursor.getLong(cursor.getColumnIndex("data_fim")));
-            atividades.add(new Atividade(id, nome, descricao, duracao, prioridade, dtInicio, dtFim));
+            Date data = new Date(cursor.getLong(cursor.getColumnIndex("data")));
+            atividades.add(new Atividade(id, nome, descricao, duracao, prioridade, data));
         }
         return atividades;
     }
@@ -67,9 +65,8 @@ public class AtividadeDAO implements IAtividadeDAO {
             String descricao = cursor.getString(cursor.getColumnIndex("descricao"));
             int duracao = cursor.getInt(cursor.getColumnIndex("duracao"));
             String prioridade = cursor.getString(cursor.getColumnIndex("prioridade"));
-            Date dataInicio = new Date(cursor.getLong(cursor.getColumnIndex("data_inicio")));
-            Date dataFim = new Date(cursor.getLong(cursor.getColumnIndex("data_fim")));
-            atividades.add(new Atividade(id, nome, descricao, duracao, prioridade, dataInicio, dataFim));
+            Date data = new Date(cursor.getLong(cursor.getColumnIndex("data")));
+            atividades.add(new Atividade(id, nome, descricao, duracao, prioridade, data));
         }
         return atividades;
     }
@@ -82,8 +79,7 @@ public class AtividadeDAO implements IAtividadeDAO {
         valores.put("descricao", atividade.getDescricao());
         valores.put("duracao", atividade.getDuracao());
         valores.put("prioridade", atividade.getPrioridade());
-        valores.put("data_inicio", atividade.getDuracao());
-        valores.put("data_fim", atividade.getPrioridade());
+        valores.put("data", atividade.getData().getTime());
         banco.update("atividade",valores,"id=?", new String[]{String.valueOf(atividade.getId())});
         banco.close();
     }

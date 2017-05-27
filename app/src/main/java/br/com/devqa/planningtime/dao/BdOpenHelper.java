@@ -23,8 +23,7 @@ public class BdOpenHelper extends SQLiteOpenHelper {
             "descricao VARCHAR(100)," +
             "duracao INTEGER," +
             "prioridade VARCHAR(5)," +
-            "data_inicio DATE," +
-            "data_fim DATE);";
+            "data DATE);";
 
     public BdOpenHelper (Context context) {
         super(context, NOME_BD, null, 1);
