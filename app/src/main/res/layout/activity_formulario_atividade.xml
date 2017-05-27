@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.devqa.planningtime.FormularioAtividadeActivity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Nome:"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/edtDataInicio"
+        android:layout_alignStart="@+id/edtDataInicio" />
+
+    <EditText
+        android:id="@+id/edtNomeTarefa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:ems="10"
+        android:inputType="text"
+        android:layout_alignBaseline="@+id/textView6"
+        android:layout_alignBottom="@+id/textView6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="54dp"
+        android:text="Data Início:"
+        android:layout_below="@+id/edtNomeTarefa"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/edtDataInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="date"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_below="@+id/textView7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/edtNomeTarefa"
+        android:layout_toStartOf="@+id/edtNomeTarefa" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/edtDataInicio"
+        android:layout_alignEnd="@+id/edtNomeTarefa"
+        android:layout_alignRight="@+id/edtNomeTarefa"
+        android:layout_marginEnd="55dp"
+        android:layout_marginRight="55dp"
+        android:text="Data Fim:" />
+
+    <EditText
+        android:id="@+id/edtDataFim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="5"
+        android:inputType="date"
+        android:layout_alignBaseline="@+id/edtDataInicio"
+        android:layout_alignBottom="@+id/edtDataInicio"
+        android:layout_alignRight="@+id/edtNomeTarefa"
+        android:layout_alignEnd="@+id/edtNomeTarefa"
+        android:layout_marginRight="27dp"
+        android:layout_marginEnd="27dp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edtDataInicio"
+        android:layout_alignStart="@+id/edtDataInicio"
+        android:layout_centerVertical="true"
+        android:text="Duração:" />
+
+    <EditText
+        android:id="@+id/edtDuracao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView9"
+        android:layout_marginTop="31dp"
+        android:ems="5"
+        android:inputType="time" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Prioridade:"
+        android:layout_above="@+id/edtDuracao"
+        android:layout_alignLeft="@+id/textView8"
+        android:layout_alignStart="@+id/textView8" />
+
+    <Spinner
+        android:id="@+id/spnPrioridade"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edtNomeTarefa"
+        android:layout_alignRight="@+id/edtNomeTarefa"
+        android:layout_alignTop="@+id/edtDuracao" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtDuracao"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Salvar"
+        android:onClick="salvar"/>
+
+</RelativeLayout>
