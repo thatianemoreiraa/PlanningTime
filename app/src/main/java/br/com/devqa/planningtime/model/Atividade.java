@@ -10,22 +10,19 @@ public class Atividade {
 
     private int id;
     private String nome;
-    private String descricao;
     private int duracao;
     private String prioridade;
     private Date data;
 
-    public Atividade(int id, String nome, String descricao, int duracao, String prioridade, Date data) {
+    public Atividade(int id, String nome, int duracao, String prioridade, Date data) {
         this.id = id;
         this.nome = nome;
-        this.descricao = descricao;
         this.duracao = duracao;
         this.prioridade = prioridade;
         this.data = data;
     }
-    public Atividade(String nome, String descricao, int duracao, String prioridade, Date data) {
+    public Atividade(String nome, int duracao, String prioridade, Date data) {
         this.nome = nome;
-        this.descricao = descricao;
         this.duracao = duracao;
         this.prioridade = prioridade;
         this.data = data;
@@ -41,14 +38,6 @@ public class Atividade {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public int getDuracao() {

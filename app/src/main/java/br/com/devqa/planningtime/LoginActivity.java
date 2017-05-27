@@ -3,6 +3,7 @@ package br.com.devqa.planningtime;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setTitle("Login");
     }
 
     public void autenticar(View view) {
@@ -43,14 +45,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private Usuario obterDadosUsuario(boolean autentica) {
-        Usuario usuario = null;
+        usuarioDAO = new UsuarioDAO(this);
         if (autentica) {
-            UsuarioDAO usuarioDAO = new UsuarioDAO(this);
-            usuario = usuarioDAO.pesquisarPeloNomeSenha(nome, senha);
-        } else {
-            usuario = new Usuario(nome, senha);
+            return usuarioDAO.pesquisarPeloNomeSenha(nome, senha);
         }
-        return usuario;
+        return new Usuario(nome, senha);
     }
 
     private boolean verificarPreenchimentoDosCampos() {

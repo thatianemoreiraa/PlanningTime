@@ -15,12 +15,11 @@ public class BdOpenHelper extends SQLiteOpenHelper {
     private static String TB_USUARIO = "CREATE TABLE usuario" +
             "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "nome VARCHAR(30)," +
-            "telefone VARCHAR(10));";
+            "senha VARCHAR(10));";
 
     private static String TB_ATIVIDADE = "CREATE TABLE atividade" +
             "(id INTEGER PRIMARY KEY AUTOINCREMENT," +
             "nome VARCHAR(30)," +
-            "descricao VARCHAR(100)," +
             "duracao INTEGER," +
             "prioridade VARCHAR(5)," +
             "data DATE);";
