@@ -1,5 +1,8 @@
 package br.com.devqa.planningtime.model;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import java.text.ParseException;
@@ -20,6 +23,16 @@ public class Util {
             Log.e("DATE_FORMAT", e.getStackTrace().toString());
             return null;
         }
+    }
 
+    public static int obterIdUsuario(Intent intent) {
+       return Integer.parseInt(intent.getStringExtra("idUsuario"));
+    }
+
+    public static Intent enviarIntentComIdUsuario(Context context, Class<?> cls, String idUsuario) {
+        Intent intent = new Intent();
+        intent.putExtra("idUsuario", idUsuario);
+        intent.setClass(context, cls);
+        return intent;
     }
 }

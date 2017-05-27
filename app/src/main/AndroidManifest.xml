@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".GoogleServiceActivity" />
-        <activity android:name=".FormularioAtividadeActivity"></activity>
+        <activity android:name=".FormularioAtividadeActivity" />
+        <activity android:name=".TarefasActivity"></activity>
     </application>
 
 </manifest>

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import br.com.devqa.planningtime.dao.UsuarioDAO;
 import br.com.devqa.planningtime.model.Usuario;
+import br.com.devqa.planningtime.model.Util;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(this, "Usuário e/ou senha incorretos!", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "Bem vindo(a) " + usuario.getNome() + "!", Toast.LENGTH_SHORT).show();
+                startActivity(Util.enviarIntentComIdUsuario(this, TarefasActivity.class, String.valueOf(usuario.getId())));
             }
         }
     }
@@ -40,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
         if (verificarPreenchimentoDosCampos()) {
             Usuario usuario = obterDadosUsuario(false);
             usuarioDAO.inserirUsuario(usuario);
-            startActivity(new Intent(this, FormularioAtividadeActivity.class));
+            usuario = obterDadosUsuario(true);
+            startActivity(Util.enviarIntentComIdUsuario(this, FormularioAtividadeActivity.class, String.valueOf(usuario.getId())));
         }
     }
 

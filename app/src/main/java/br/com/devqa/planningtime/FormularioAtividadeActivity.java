@@ -1,6 +1,7 @@
 package br.com.devqa.planningtime;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -44,6 +45,7 @@ public class FormularioAtividadeActivity extends Activity {
             AtividadeDAO dao = new AtividadeDAO(this);
             dao.inserirAtividade(new Atividade(nome, Integer.parseInt(duracao), prioridade, Util.stringToDate(data)));
             Toast.makeText(this, "Atividade cadastrada!", Toast.LENGTH_SHORT).show();
+            startActivity(Util.enviarIntentComIdUsuario(this, TarefasActivity.class, getIntent().getStringExtra("idUsuario")));
         }
     }
 
